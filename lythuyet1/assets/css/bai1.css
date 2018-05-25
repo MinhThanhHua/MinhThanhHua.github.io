@@ -1,0 +1,76 @@
+.container{
+  margin: auto;
+  width: 500px;
+  border: 1px solid #03f;
+  font-family: Georgia,"Times New Roman", Times, serif;
+}
+.facts{
+	position: relative;
+}
+h3{
+  margin:0
+}
+.player-profile{
+  display:flex;
+}
+.profile{
+  width:100%;
+  height: 100px;
+  overflow: scroll;
+  text-align: left;
+
+}
+.profile>ul{
+	padding-left: 0;
+}
+.title{
+  background: url("../image/giphy.gif");
+  color: white;
+}
+img{
+  width: 90px;
+  height: 99px;
+  border: 1px solid black;
+}
+.profile>ul{
+  list-style-type:none;
+  margin:0;
+}
+.facts>ul{
+  list-style-image: url("../image/star.png");
+  margin-left: 20px
+}
+textarea{
+	resize: none;
+}
+td:first-child{
+	width: 110px;
+}
+.facts>h3{
+	text-align: center;
+}
+p{
+	background-color: #ececec;
+}
+.post{
+	position: relative;
+}
+.post::after{
+	content:" ";
+	position: absolute;
+	top:100%;
+	left: 5%;
+	border-left: 15px solid transparent;
+	border-right: 15px solid transparent;
+	border-top: 15px solid #ececec;
+}
+span{
+	margin-left: 15%;
+	margin-top: -19px;
+	position: absolute;
+	padding: 1px;
+}
+a{
+	color: blue;
+	text-decoration: none;
+}
