@@ -1,0 +1,12 @@
+body{
+	font-size: 20px;
+}
+dt{
+	font-family: "Times New Roman", Arial;
+	font-size: 30px;
+	text-shadow: 2px 2px red;
+}
+dd>a{
+	text-decoration: none;
+	font-style: italic;
+}
