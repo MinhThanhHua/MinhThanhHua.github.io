@@ -1,0 +1,89 @@
+*{
+	font-family: arial;
+	color: #595959;
+	max-width: 100%;
+}
+.container{
+	
+	display: flex;
+	background-color : #111;
+}
+.information-left{
+	max-width: 45%;
+	margin-left: 50px;
+}
+.information-left>img{
+	width: 200px;
+	height: 100px;
+	padding: 0 40px 20px 0;
+	float: left;
+}
+.information-left p{
+	padding: 0;
+	margin : 0;
+}
+h4,span{
+	color: white;
+}
+.noidung2{
+	height: 200px;
+	margin-left: 10px;
+}
+.information-link{
+	margin-left: 10px;
+}
+.information-link p,.information-link h4{
+	padding: 0;
+	margin: 0;
+}
+.link{
+	display: flex;
+}
+.link ul{
+	list-style-position: inside;
+	padding-left: 0;
+	padding-right: 15px;
+}
+.more-info{
+	margin-top: 15px;
+}
+.information-right{
+	width: 23%;
+	height: 75%;
+	background-color: #232326;
+	margin-top: 20px;
+	padding-top: 30px;
+}
+h5{
+	padding-bottom: 40px;
+	margin-top: 20px;
+}
+#imageE{
+	border: 1px solid #444;
+	margin: auto;
+	display: block;
+	margin-top: 50px;
+	border-radius: 10px ;
+}
+.information-right> hr {
+	margin-top: 50px;
+	width: 70%;
+	display: block;
+	border: 0.5px solid #444;
+}
+.inf{
+	margin-left: 50px;
+	margin-top: 20px;
+}
+.inf>p{
+	padding: 0;
+	margin-top: 5px;
+}
+.information-right>#more-info{
+	margin: 50px 0 0 50px;
+	padding-bottom: 50px;
+}
+#more-info>a{
+	text-decoration:  none;
+	color: white;
+}
