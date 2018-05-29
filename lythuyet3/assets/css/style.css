@@ -28,21 +28,31 @@ h4,span{
 .noidung2{
 	height: 200px;
 	margin-left: 10px;
+	border-top: 1px dotted #777;
+	margin-top: 20px;
+	width: 95%;
 }
 .information-link{
 	margin-left: 10px;
+
 }
 .information-link p,.information-link h4{
 	padding: 0;
 	margin: 0;
 }
+.information-link #more-info{
+	padding-bottom: 40px;
+}
 .link{
 	display: flex;
+	border-bottom: 1px dotted #777;
+	width: 95%;
 }
 .link ul{
 	list-style-position: inside;
 	padding-left: 0;
 	padding-right: 15px;
+	list-style-image: url(../image/arr.gif);
 }
 .more-info{
 	margin-top: 15px;
