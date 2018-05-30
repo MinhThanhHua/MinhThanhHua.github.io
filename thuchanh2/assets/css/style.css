@@ -16,33 +16,28 @@ body{
 .container>.information img{
 	margin: 10px 10px;
 }
+.container>.menu li{
+	display: inline-block;
+	padding: 0 30px;
+}
 .container>.menu{
+	text-align: center;
 	border-top: 1px dotted #fff;
 	margin-top: 30px;
-	height: 100px;
-	position: relative;
+	padding : 10px 0;
 }
-.container>.menu span{
-	position: absolute;
-	top: 70%;
-}
-.menu span{
-	margin-left: -70px;
-	color: white;
-}
-.container>.menu>ul{
-	list-style-type: none;
-	padding: 0;
-}
-.container>.menu>ul>li{
-	display: inline-block;
-	width: 15%;
-	padding-left: 30px;
+.container>.menu img{
+	display: block;
+	margin: auto;
 }
 .container>.information>.left{
 	padding-top: 2px;
 	width: 50%;
 	border-right: 1px dotted black;
+}
+.container>.information>.left img{
+	width: 290px; 
+	height: 150px;
 }
 .container>.information>.left>h4{
 	background-image: url(../../image/h3-confidential-showbuzz-bg.gif);
@@ -60,6 +55,10 @@ body{
 .container>.information>.right{
 	padding-top: 2px;
 	width: 50%;
+}
+.container>.information>.right img{
+	width: 290px;
+	height: 150px;
 }
 .container>.information>.right>h3{
 	background-image: url(../../image/h2-confidential-heading-bg.gif);
@@ -101,8 +100,29 @@ body{
 	background-image:  url(../../image/h2-top-movie-trailers-bg.gif);
 	color: white;
 }
+.container>.movie>.left  button:first-child{
+	background: #eee  url(../../image/open.jpg) no-repeat center right;
+}
+.container>.movie>.left button{
+	background: #eee  url(../../image/close.jpg) no-repeat center right;
+	width: 100%;
+	border: none;
+	padding: 4px 1px;
+	text-align: left;
+	color: #0189bb;
+	font-weight: bold;
+}
+.container>.movie>.left .inf{
+	background-color: white;
+	color: black;
+	font-size: 13px;
+	display: flex;
+	height: 110px;
+}
+.container>.movie>.left .inf p{
+	margin: 0 0 0 10px;
+}
 .container>.movie>.left ul{
-	background-image:  url(../../image/h3-movie-trailers-bg.gif);
 	margin: 0;
 	list-style-type: none;
 	padding: 0;
@@ -130,33 +150,41 @@ body{
 	border-bottom: 1px dotted black;
 	padding-bottom: 15px;
 }
+.container>.movie>.right>.box1>h4,.box2>h4{
+	background: url(../../image/start_1.png) no-repeat right;
+	margin: 0;
+	color: #0189bb;
+}
 .container>.movie>.right>.times{
-	background: url(../../image/clock.png) no-repeat 2%;
+	background: url(../../image/clock.png) no-repeat 2% 90%;
 	background-size: 15px;
+	width: 95%;
+	padding-top: 10px;
 }
 .container>.movie>.right>.times>a{
 	margin-left: 25px;
 	font-size: 13px;
 }
 .container>.movie>.right>.times>.date{
-	margin: 10px;
+	margin-left: 25px;
 	border-top: 1px dotted black;
 	padding-top: 5px;
-
+	font-size: 13px
 }
-.container>.movie>.right>.times>span{
+.container>.movie>.right>.times span{
 	margin-left: 25px;
 }
 .container>.movie>.right .inf{
 	display: flex;
 }
-.container>.movie>.right .clip{
-	background: url(../../image/video-player.png) 2% ;
+.container>.movie .clip{
+	background: url(../../image/icon_1.png) 2% ;
 	background-repeat: no-repeat;
 	color: #0189bb;
 }
-.container>.movie>.right .clip> span{
-	margin-left: 8%; 
+.container>.movie .clip> span{
+	margin-left: 10%; 
+	padding-left: 5px;
 }
 a{
 	text-decoration: none;
@@ -166,12 +194,30 @@ a{
 b,.movie a{
 	color: #0189bb;
 }
+.menu a {
+	color: white;
+}
 h3{
 	margin: 0;
 }
 select{
 	width: 150px;
 }
-.inf>p{
+.inf>p,h5{
 	margin: 0;
+}
+footer{
+	
+	background-color: white;
+	width: 70%;
+	margin: -15px auto;
+	font-size: 11px;
+	text-align: center;
+	padding: 5px 0;
+}
+footer  a,h5{
+	color: #0189bb;
+}
+footer a:last-child{
+	float: right
 }

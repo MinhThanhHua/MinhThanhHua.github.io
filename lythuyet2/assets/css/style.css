@@ -73,8 +73,14 @@ a{
 }
 .box2>.author> .img{
 	position: absolute;
-	top: 61%;
+	top: 56%;
 	left: 65%;
+	width: 150px;
+	height: 120px;
+}
+.box2>.author> .img img{
+	width: 150px;
+	height: 120px;
 }
 .box2  h3{
 	margin: 0;
@@ -103,6 +109,8 @@ a{
 	position: absolute;
 	top: 15%;
 	left: 65%;
+	width: 150px;
+	height: 150px;
 }
 .box4> .information{
 	background-color: #fff;
