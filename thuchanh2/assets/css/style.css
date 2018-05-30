@@ -30,6 +30,9 @@ body{
 	display: block;
 	margin: auto;
 }
+.container>.menu ul {
+	padding: 0;
+}
 .container>.information>.left{
 	padding-top: 2px;
 	width: 50%;
