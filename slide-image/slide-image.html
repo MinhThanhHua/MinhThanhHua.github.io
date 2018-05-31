@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<title>Slide-image</title>
+</head>
+<body>
+	<div class="container">
+		<div class="previous">
+			<button onclick="changeImageClick('trai')"><<</button>
+		</div>
+		<div class="image-show">
+			<img id="imageshow" name="soi_1" src="image/soi_1.jpg" alt="soi">
+		</div>
+		<div class="next">
+			<button onclick="changeImageClick('phai')">>></button>
+		</div>	
+		<div class="image-mini">
+			<img onclick="changeImage(name)" name="soi_1" src="image/soi_1.jpg" alt="">
+			<img onclick="changeImage(name)" name="soi_2" src="image/soi_2.jpg" alt="">
+			<img onclick="changeImage(name)" name="soi_3" src="image/soi_3.jpg" alt="">
+			<img onclick="changeImage(name)" name="soi_4" src="image/soi_4.jpg" alt="">
+		</div>
+	</div>
+	<script src="assets/js/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.container{
+	position: relative;
+	margin: auto;
+	width: 70%;
+}
+.container>.image-mini,.container>.image-show{
+	margin-left: 20%;
+}
+.container>.image-mini  img{
+	width: 50px;
+}
+.previous{
+	position: absolute;
+	top: 20%;
+	left: 5%;
+}
+.next{
+	position: absolute;
+	top: 20%;
+	left: 75%;
+}
+button{
+	padding: 20px;
+	font-size: 80px;
+	background-color: white;
+	border: none;
+}
