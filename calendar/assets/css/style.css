@@ -1,0 +1,35 @@
+form{
+	position: relative;
+	width: 15%;
+	
+}
+input{
+	width: 200px;
+	height: 20px;
+}
+img{
+	position: absolute;
+	left: 90%;
+	top: 15%;
+}
+#calendar{
+	background-color: #444;
+	margin-left: 5%;
+	text-align: center;
+	padding: 2px;
+	display: none;
+}
+td,th{
+	background-color: #fff;
+	padding:  5px 10px;
+}
+#date{
+	color: red;
+	font-weight: 600;
+	
+}
+#date >td{
+	background-color: #777;
+	border: 1px solid white;
+	font-size: 20px;
+}
