@@ -7,13 +7,14 @@
 </head>
 <body>
 	<form action="#">
-		<input type="text">
+		<input id="nhapNgayThang" type="text" placeholder="dd/mm/yyyy" >
 		<img onclick="showCalendar()" src="image/calendar.png" alt="">
+		<div class="button"><button onclick ="inputDate()" >Tìm lịch</button></div>
 	</form>
-	<table id="calendar">
+	<table onclick="calendar()" id="calendar">
 		<tr>
-			<th><button><<</button></th>
-			<th><button onclick="changeMonth()"><</button></th>
+			<th><button onclick="changeYear(-1)"><<</button></th>
+			<th><button onclick="changeMonth(-1)"><</button></th>
 			<th colspan="2">
 				<select onchange="changeDate()" name="month" id="month">
 				</select>
@@ -22,8 +23,8 @@
 				<select onchange="changeDate()" name="year" id="year">
 				</select>
 			</th>
-			<th><button onclick="changeMonth()">></button></th>
-			<th><button>>></button></th>
+			<th><button onclick="changeMonth(1)">></button></th>
+			<th><button onclick="changeYear(1)">>></button></th>
 		</tr>
 		<tr id="date">
 			<td>Sun</td>
@@ -35,6 +36,7 @@
 			<td>Sat</td>
 		</tr>
 	</table>
+
 	<script src="assets/js/script.js"></script>
 </body>
 </html>
