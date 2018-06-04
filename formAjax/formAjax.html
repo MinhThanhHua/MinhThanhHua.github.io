@@ -8,23 +8,26 @@
 </head>
 <body>
 	<div class="container">
-		<form action="sever.php" method="get">
+		<form action="sever.php" method="get" onsubmit="return(checkValidateForm());">
 			<div class="form-control">
 				<span>Username: </span>
 				<div class="input-control">
 					<input name="username" type="text" >
+					<b class="show"></b>
 				</div>
 			</div>
 			<div class="form-control">
 				<span>Password: </span>
 				<div class="input-control">
-					<input name="password" type="text">
+					<input name="password" type="password">
+					<b class="show"></b>
 				</div>
 			</div>
 			<div class="form-control">
 				<span>Email: </span>
 				<div class="input-control">
 					<input name="email" type="text">
+					<b class="show"></b>
 				</div>
 			</div>
 			<div class="form-control">
@@ -32,6 +35,7 @@
 				<div class="input-control" id="birthday">
 					<input name="ngaysinh" id="nhapNgayThang" type="text" onclick="showCalendar()">
 					<img onclick="showCalendar()" src="image/calendar.png" alt="ảnh">
+					<b class="show"></b>
 				</div>
 			</div> 
 			<div class="calendar">
@@ -64,7 +68,7 @@
 			<div class="show"></div>
 			<div class="form-control">
 				<div class="input-control-button">
-					<input onclick="return checkValidateForm()" type="submit" value="SUBMIT">
+					<input type="submit" value="SUBMIT">
 					<input type="reset" value="RESET">
 				</div>
 			</div>

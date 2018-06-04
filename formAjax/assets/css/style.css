@@ -13,7 +13,7 @@ span{
 	margin: 5px;
 	float: left;
 }
-input[type = 'text']{
+input[type = 'text'],input[type = 'password']{
 	border: 1px solid #3cc;
 	border-radius: 3px;
 	box-shadow: 1px 1px #3cc;
@@ -43,4 +43,8 @@ img{
 	position: absolute;
 	left: 53%;
 	top: 20%;
+}
+.show{
+	font-weight: 500;
+	color: red;
 }
