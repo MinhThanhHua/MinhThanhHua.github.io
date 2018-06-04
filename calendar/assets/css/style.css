@@ -1,43 +1,47 @@
-form{
+.calendar form{
 	position: relative;
 	width: 15%;
 	
 }
-input{
+.calendar .form-calendar input{
 	width: 200px;
 	height: 20px;
 }
-img{
+.calendar img{
 	position: absolute;
-	left: 90%;
+	right: 0;
 	top: 15%;
 }
-#calendar{
+.calendar #calendar{
 	background-color: #444;
 	margin-left: 5%;
 	text-align: center;
 	padding: 2px;
 	display: none;
 }
-td,th{
+.calendar td,th{
 	background-color: #fff;
 	padding:  5px 10px;
 }
-#date{
+.calendar #date{
 	color: red;
 	font-weight: 600;
 	
 }
-#date >td{
+.calendar #date >td{
 	background-color: #777;
 	border: 1px solid white;
 	font-size: 20px;
 }
-.button>button{
+.calendar .button>button{
 	width: 100px;
 }
-.button{
+.calendar .button{
 	position: absolute;
 	top: 10%;
 	left: 220px;
+}
+.calendar .form-calendar{
+	position: relative;
+	width: 190px;
 }

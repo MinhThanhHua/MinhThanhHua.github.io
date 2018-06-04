@@ -3,43 +3,74 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="stylesheet" href="../calendar/assets/css/style.css">
 	<title>Form Ajax</title>
 </head>
 <body>
 	<div class="container">
-		<form action="#">
+		<form action="sever.php" method="get">
 			<div class="form-control">
 				<span>Username: </span>
 				<div class="input-control">
-					<input type="text">
+					<input name="username" type="text" >
 				</div>
 			</div>
 			<div class="form-control">
 				<span>Password: </span>
 				<div class="input-control">
-					<input type="text">
+					<input name="password" type="text">
 				</div>
 			</div>
 			<div class="form-control">
 				<span>Email: </span>
 				<div class="input-control">
-					<input type="text">
+					<input name="email" type="text">
 				</div>
 			</div>
 			<div class="form-control">
 				<span>Birthday: </span>
-				<div class="input-control">
-					<input id="birthday" type="text" onclick="myFunc()">
+				<div class="input-control" id="birthday">
+					<input name="ngaysinh" id="nhapNgayThang" type="text" onclick="showCalendar()">
+					<img onclick="showCalendar()" src="image/calendar.png" alt="ảnh">
 				</div>
+			</div> 
+			<div class="calendar">
+				<table onclick="calendar()" id="calendar">
+					<tr>
+						<th><input type="button" value="<<" onclick="changeYear(-1)" ></th>
+						<th><input type="button" value="<" onclick="changeMonth(-1)" ></th>
+						<th colspan="2">
+							<select onchange="changeDate()" name="month" id="month">
+							</select>
+						</th>
+						<th>
+							<select onchange="changeDate()" name="year" id="year">
+							</select>
+						</th>
+						<th><input type="button" value=">" onclick="changeMonth(1)" ></th>
+						<th><input type="button" value=">>" onclick="changeYear(1)" ></th>
+					</tr>
+					<tr id="date">
+						<td>Sun</td>
+						<td>Mon</td>
+						<td>Tue</td>
+						<td>Wed</td>
+						<td>Thu</td>
+						<td>Fri</td>
+						<td>Sat</td>
+					</tr>
+				</table>
 			</div>
+			<div class="show"></div>
 			<div class="form-control">
 				<div class="input-control-button">
-					<input type="submit" value="SUBMIT">
+					<input onclick="return checkValidateForm()" type="submit" value="SUBMIT">
 					<input type="reset" value="RESET">
 				</div>
 			</div>
 		</form>
 	</div>
 	<script src="assets/js/script.js"></script>
+	<script src="../calendar/assets/js/script.js"></script>
 </body>
 </html>

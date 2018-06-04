@@ -6,12 +6,15 @@
 	<title>Calendar</title>
 </head>
 <body>
+	<div class="calendar">
 	<form action="#">
-		<input id="nhapNgayThang" type="text" placeholder="dd/mm/yyyy" >
-		<img onclick="showCalendar()" src="image/calendar.png" alt="">
-		<div class="button"><button onclick ="inputDate()" >Tìm lịch</button></div>
+		<div class="form-calendar">
+			<input id="nhapNgayThang" type="text" placeholder="dd/mm/yyyy" >
+		    <img onclick="showCalendar()" src="image/calendar.png" alt="">
+			<div class="button"><button onclick ="inputDate()" >Tìm lịch</button></div>
+		</div>
 	</form>
-	<table onclick="calendar()" id="calendar">
+	<table  onclick="calendar()" id="calendar">
 		<tr>
 			<th><button onclick="changeYear(-1)"><<</button></th>
 			<th><button onclick="changeMonth(-1)"><</button></th>
@@ -36,7 +39,7 @@
 			<td>Sat</td>
 		</tr>
 	</table>
-
+</div>
 	<script src="assets/js/script.js"></script>
 </body>
 </html>

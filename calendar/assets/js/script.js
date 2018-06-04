@@ -96,9 +96,9 @@ function checkMonth31(thang) {
 // add event cho các ô ngày, ẩn các ô thừa
 function addEvent(viTri, thang, nam, songay) {
 	var td = document.getElementsByTagName('td');
-	var input = document.getElementsByTagName('input');
+	var input = document.getElementById('nhapNgayThang')
 	td[viTri].addEventListener('click', function() {
-		input[0].value=td[viTri].innerHTML+'/'+(thang+1)+'/'+nam;
+		input.value=td[viTri].innerHTML+'/'+(thang+1)+'/'+nam;
 	})	
 	for (songay+7; songay+7 < 49; songay++){
 		td[songay+7].style.display  = 'none'
@@ -154,21 +154,30 @@ function getYearSelected(year) {
 // lấy ngày đang hiển thị
 function getDay() {
 	var date = new Date();
+	var thang = date.getMonth();
+	var nam = date.getUTCFullYear();
+	var firstDayInMonth = new Date(nam, thang, 1);
 	var td =document.getElementsByTagName('td');
-	td[date.getDay()+7].style.backgroundColor = 'blue'
+	var date1 = new Date();
+	td[firstDayInMonth.getDay()+6+date.getDate()].style.backgroundColor = 'blue';
 }
 // kiểm tra có phải tháng năm hiện tại ko để tô background
 function calendar() {
+	// năm tháng lấy trên selec
 	var month = document.getElementById('month');
 	var year = document.getElementById('year');
 	var thang = getMonthSelected(month);
 	var nam = getYearSelected(year);
 	var date = new Date();
+	// tháng ngày lấy theo hiện tai
+	var thangHienTai = date.getMonth();
+	var firstDayInMonth = new Date(nam, thangHienTai, 1);
 	var td =document.getElementsByTagName('td');
 	if (date.getMonth() == thang && date.getFullYear() == nam){
 		getDay();
 	} else{
-		td[date.getDay()+7].style.backgroundColor = 'white'
+		console.log(firstDayInMonth.getDay()+7)
+		td[firstDayInMonth.getDay()+6+date.getDate()].style.backgroundColor = 'white'
 	}	
 }
 // tạo list year
