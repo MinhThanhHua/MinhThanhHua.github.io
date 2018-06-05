@@ -7,13 +7,23 @@
 	<title>Form Ajax</title>
 </head>
 <body>
+	<?php
+	if (isset($_POST['formAjax'])){
+		echo 'hello';
+	}
+	?>
 	<div class="container">
-		<form action="sever.php" method="get" onsubmit="return(checkValidateForm());">
+		<form action="formAjax.php" method="post" onsubmit="return(checkValidateForm());">
 			<div class="form-control">
 				<span>Username: </span>
 				<div class="input-control">
 					<input name="username" type="text" >
 					<b class="show"></b>
+					<?php  
+					if (isset($_POST['username']) && strlen($_POST['email']) < 8){
+						echo '<b class = "show">Username length min 8 letter</b>';
+					}
+					?>
 				</div>
 			</div>
 			<div class="form-control">
@@ -21,6 +31,11 @@
 				<div class="input-control">
 					<input name="password" type="password">
 					<b class="show"></b>
+					<?php 
+					if (isset($_POST['email']) && strlen($_POST['email']) < 8 ){
+						echo '<b class = "show">Email wrong format</b>';
+					}
+					?>
 				</div>
 			</div>
 			<div class="form-control">
@@ -28,6 +43,11 @@
 				<div class="input-control">
 					<input name="email" type="text">
 					<b class="show"></b>
+					<?php 
+					if (isset($_POST['password']) && strlen($_POST['password']) < 8  ){
+						echo '<b class = "show">Password length min 8 letter</b>';
+					}
+					?>
 				</div>
 			</div>
 			<div class="form-control">
@@ -36,6 +56,11 @@
 					<input name="ngaysinh" id="nhapNgayThang" type="text" onclick="showCalendar()">
 					<img onclick="showCalendar()" src="image/calendar.png" alt="ảnh">
 					<b class="show"></b>
+					<?php
+					if (isset($_POST['ngaysinh']) && empty($_POST['ngaysinh'])){
+						echo '<b class = "show">Chưa chọn ngày sinh<b>';
+					}
+					?>
 				</div>
 			</div> 
 			<div class="calendar">
@@ -75,6 +100,7 @@
 		</form>
 	</div>
 	<script src="assets/js/script.js"></script>
+	<script src="assets/js/ajax.js"></script>
 	<script src="../calendar/assets/js/script.js"></script>
 </body>
 </html>
