@@ -9,19 +9,20 @@ function HTTP() {
 var http = HTTP();
 
 function checkValidate() {
-	console.log('ok')
-	http.open('get', 'sever.php?data=true', true);
+	var userName = document.getElementsByName('username');
+	var password = document.getElementsByName('password');
+	var email = document.getElementsByName('email');
+	var ngaySinh = document.getElementsByName('ngaysinh');
+	http.open('post', 'server.php?username='+userName[0].value+'&password='+password[0].value+
+	'&email='+email[0].value+'&birthday='+ngaySinh[0].value, true);
 	http.onreadystatechange = process;
-	http.send(null);
+	http.send('string');
 }
 function process() {
-	console.log('ok')
 	if (http.readyState == 4 || http.status == 200) {
 		kq = http.responseText;
 		console.log(kq)
 		var show = document.getElementsByClassName('show');
+		show[0].innerHTML = kq;
 	}
-}
-function hello(){
-    alert('ok')
 }

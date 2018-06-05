@@ -3,15 +3,10 @@
 <head>
 	<meta charset="UTF-8">
 	<link rel="stylesheet" href="assets/css/style.css">
-	<link rel="stylesheet" href="../calendar/assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/calendar.css">
 	<title>Form Ajax</title>
 </head>
 <body>
-	<?php
-	if (isset($_POST['formAjax'])){
-		echo 'hello';
-	}
-	?>
 	<div class="container">
 		<form action="formAjax.php" method="post" onsubmit="return(checkValidateForm());">
 			<div class="form-control">
@@ -90,7 +85,6 @@
 					</tr>
 				</table>
 			</div>
-			<div class="show"></div>
 			<div class="form-control">
 				<div class="input-control-button">
 					<input type="submit" value="SUBMIT">
@@ -99,8 +93,8 @@
 			</div>
 		</form>
 	</div>
-	<script src="assets/js/script.js"></script>
+	<script src="assets/js/formAjax.js"></script>
 	<script src="assets/js/ajax.js"></script>
-	<script src="../calendar/assets/js/script.js"></script>
+	<script src="assets/js/script.js"></script>
 </body>
 </html>
