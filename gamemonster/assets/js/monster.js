@@ -3,14 +3,27 @@ var ctxMenu = canvasMenu.getContext('2d');
 
 var canvasMain = document.getElementById('gameplay');
 var ctxMain = canvasMain.getContext('2d');
-
-var monster;
-
-//S-------------------Image -------------------------
+//random
+var cx = Math.floor(Math.random()*(canvasMain.width-100));
+var cy = Math.floor(Math.random()*(canvasMain.height-100))
+var monster = new Monster(canvasMain.width, canvasMain.height, cx, cy);
+var monster1 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster2 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster3 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster4 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster5 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster6 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster7 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monster8 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
+var monsters = [monster, monster1, monster2, monster3, monster4, monster5, monster6,
+                monster7, monster8];
+var diem = 0;
+var fast = setInterval('update()',10);
+var startStatus = true;
+//-------------------Image -------------------------
 // Hình ảnh menu
 var imgMenuBg = new Image();
 
-imgMenuBg.src = 'image/menubg.png';
 
 var imgBoomBb = new Image();
 imgBoomBb.src = 'image/boombbb.png';
@@ -26,9 +39,9 @@ imgReload.src = 'image/reload.png';
 
 var imgMonster = new Image();
 imgMonster.src = 'image/monster.png'
-//E-------------------End Image---------------------------------
+//------------------End Image---------------------------------
 
-//S------------------- Layout --------------------------------
+//------------------- Layout --------------------------------
 
 //Hiển thị chữ và ảnh cho menu
 function layoutMenu() {
@@ -43,41 +56,37 @@ function layoutMenu() {
     ctxMenu.fillText('Speed:', 10, 90);
     ctxMenu.fillText('Random Monster:', 230, 30);
 }
-//E-------------------End layout-------------------------------
+//-------------------End layout-------------------------------
 
-//S------------------tạo di chuyển cho monster-----------------
-// khởi tạo đối tượng monster
-function monster(mapWidtch, mapHeight) {
+//------------------tạo monster và di chuyển monster-----------------
+// khởi tạo đối tượng monster xuất hiện bất kì
+function Monster(mapWidtch, mapHeight, cx, cy) {
     this.mapWidtch = mapWidtch;
     this.mapHeight = mapHeight;
-    this.speedX = 3;
-    this.speedY = 3;
-    this.cx = Math.floor(Math.random()*(this.mapWidtch-100));
-    this.cy =  Math.floor(Math.random()*(this.mapHeight-100));
+    this.transparen = true;
+    this.speedX = 1;
+    this.speedY = 1;
+    this.cx = cx;
+    this.cy = cy;
 }
+// tạo monster xuất hiện cố định
 // tạo ảnh monster
-monster.prototype.draw = function() {
+Monster.prototype.draw = function() {
     ctxMain.beginPath();
-    ctxMain.drawImage(imgMonster,this.cx, this.cy, 100, 100)
+    ctxMain.drawImage(imgMonster,this.cx, this.cy, 100, 100);
     ctxMain.closePath();
 }
-// xóa ảnh monster
-function clearMonster() {
-    ctxMain.clearRect(0, 0, this.canvasMain.width, this.canvasMain.height);
-    monster.draw();
-}
 // tạo chuyển dộng
-monster.prototype.move = function() {
+Monster.prototype.move = function() {
     this.cx += this.speedX;
     this.cy += this.speedY;
     this.left = this.cx;
     this.top = this.cy;
     this.right = this.cx + 100;
     this.bottom = this.cy + 100;
-    mouseClick(canvasMain, this.cx + 25, this.cx + 100, this.cy + 10, this.cy +90);
 }
 // xử lý va chạm
-monster.prototype.checkCollision = function() {
+Monster.prototype.checkCollision = function() {
     if (this.left <= 0 || this.right >= canvasMain.width){
         this.speedX = -this.speedX;
     }
@@ -85,52 +94,107 @@ monster.prototype.checkCollision = function() {
         this.speedY = -this.speedY;
     }
 }
+// xác định vị trí đối tượng chuyển động
+Monster.prototype.monsterStatus =function(e) {
+    preX = e.pageX - canvasMain.offsetLeft;
+    preY = e.pageY - canvasMain.offsetTop;
+    if (this.cx + 25 < preX && preX < this.cx + 100 && this.cy + 10 < preY && preY < this.cy +90){
+        this.clearMonster();
+        this.transparen = false;
+        score();    
+    }
+}
+// xóa ảnh monster
+Monster.prototype.clearMonster = function() {
+    ctxMain.clearRect(this.cx-1, this.cy-1, 100, 100);
+    ctxMain.clearRect(this.cx+5, this.cy+5, 100, 100);
+    
+}
 // update sau moi lan chuyen dong
 function update() {
-    monster.move();
-    monster.checkCollision();
-    clearMonster();
+    let countMonster = 0;
+    for (countMonster = 0; countMonster < 2; countMonster++){
+        monsters[countMonster].move();
+        monsters[countMonster].checkCollision();
+        monsters[countMonster].clearMonster();
+        if (monsters[countMonster].transparen){
+            monsters[countMonster].draw();
+        }
+       
+    }
+    
 }
 
-//E------------------End Tạo di chuyển của monster---------------
+//------------------End Tạo di chuyển của monster---------------
 
-//S------------------Function giết monster-----------------------
+//------------------Function giết monster-----------------------
 //Event onclick image
-function mouseClick(nameCanvas, toaDoXMin, toaDoXMax,toaDoYMin, toaDoYMax) {
-    var preX;
-    var preY;
-    nameCanvas.addEventListener('click',function(e) {
-        preX = e.pageX - this.offsetLeft;
-        preY = e.pageY - this.offsetTop;
-        if (toaDoXMin < preX && preX < toaDoXMax && toaDoYMin < preY && preY < toaDoYMax){
-            alert('ok')
-        }
+function mouseClickMenu(name, toaDoXMin, toaDoXMax,toaDoYMin, toaDoYMax) {
+    canvasMenu.addEventListener('click',function(e) {
+            preX = e.pageX - canvasMenu.offsetLeft;
+            preY = e.pageY - canvasMenu.offsetTop;
+            if (toaDoXMin < preX && preX < toaDoXMax && toaDoYMin < preY && preY < toaDoYMax){
+                if (name == 'boom'){
+                    alert('boom')
+                }
+                if (name == 'pause'){
+                    startStatus = !startStatus;
+                    fauseOrPlay(startStatus)
+                }
+            }
+        })
+}
+function mouseClickMonster(i){
+    canvasMain.addEventListener('click',function(e) {
+        monsters[i].monsterStatus(e);
     })
 }
+
+//xác định vị trí đối tượng (tui dùng)
 function mouse() {
-    var preX;
-    var preY;
+    let preX;
+    let preY;
     canvasMain.addEventListener('click',function(e) {
         preX = e.pageX - this.offsetLeft;
         preY = e.pageY - this.offsetTop;
         console.log(preX+ ' '+preY)
     })
 }
-function KillAll() {
-    console.log('chao')
-    imageData.addEventListener('click',function(){
-        alert('ok')
-    })
+//------------------End function kill monster----------------------
+
+//-----------------Score, heart, speed, pause-----------------------------
+
+// score
+function score() {
+    diem += 10;
+    ctxMenu.beginPath();
+    ctxMenu.clearRect( 100, 10, 40, 20);
+    ctxMenu.fillText(diem, 100, 30);
+    ctxMenu.closePath();
+}
+// pause or play
+function fauseOrPlay(startStatus) {
+    console.log(startStatus)
+    if (startStatus){
+        fast;
+        console.log('yes')
+    } else{
+        clearInterval(fast);
+        console.log('no')
+    }
+   
+}
+//-----------------Score, heart, speed-----------------------------
+window.onload = function main(){
+    let speed = 100;
+    let countMonster = 0;
+    layoutMenu();
+    mouseClickMenu('boom', 240, 275, 50, 85);//Boom Kill All
+    mouseClickMenu('pause', 320, 360, 50, 85);//pause
+    mouseClickMenu('reload', 390, 420, 50, 85);//reload
+    for (countMonster = 0; countMonster < 2; countMonster++){
+        mouseClickMonster(countMonster);
+    }
+    fauseOrPlay();
 }
 
-//E------------------End function---------------------------------
-window.onload = function main(){
-    var speed = 100;
-    layoutMenu();
-    mouseClick(canvasMenu, 240, 275, 50, 85);//Boom Kill All
-    mouseClick(canvasMenu, 320, 360, 50, 85);//Boom Kill All 
-    mouseClick(canvasMenu, 390, 420, 50, 85);
-//    mouse();
-    monster = new monster(canvasMain.width, canvasMain.height);
-    setInterval('update()',speed);
-}

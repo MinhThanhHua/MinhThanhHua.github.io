@@ -1,4 +1,5 @@
 #menu{
+    background: url(../../image/menubg.png);
     display: block;
     margin: auto;
 }
