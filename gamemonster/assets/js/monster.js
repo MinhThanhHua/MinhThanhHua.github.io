@@ -4,22 +4,24 @@ var ctxMenu = canvasMenu.getContext('2d');
 var canvasMain = document.getElementById('gameplay');
 var ctxMain = canvasMain.getContext('2d');
 //random
-var cx = Math.floor(Math.random()*(canvasMain.width-100));
-var cy = Math.floor(Math.random()*(canvasMain.height-100))
-var monster = new Monster(canvasMain.width, canvasMain.height, cx, cy);
-var monster1 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster2 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster3 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster4 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster5 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster6 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster7 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monster8 = new Monster(canvasMain.width, canvasMain.height, 0, 0);
-var monsters = [monster, monster1, monster2, monster3, monster4, monster5, monster6,
-                monster7, monster8];
-var diem = 0;
-var fast = setInterval('update()',10);
-var startStatus = true;
+// var cx = Math.floor(Math.random()*(canvasMain.width-100));
+// var cy = Math.floor(Math.random()*(canvasMain.height-100))
+function listMonster(){
+    var monster = new Monster(canvasMain.width, canvasMain.height, 1, 1, 170, 170);
+    var monster1 = new Monster(canvasMain.width, canvasMain.height, 1, 1, 0, 0);
+    var monster2 = new Monster(canvasMain.width, canvasMain.height, 0, 1, 170, 0);
+    var monster3 = new Monster(canvasMain.width, canvasMain.height, -1, 1, 350, 0);
+    var monster4 = new Monster(canvasMain.width, canvasMain.height, 1, 0, 0, 170);
+    var monster5 = new Monster(canvasMain.width, canvasMain.height, -1, 0, 350, 170);
+    var monster6 = new Monster(canvasMain.width, canvasMain.height, 1, 1, 0, 400);
+    var monster7 = new Monster(canvasMain.width, canvasMain.height, 0, 1, 170, 400);
+    var monster8 = new Monster(canvasMain.width, canvasMain.height, -1, 1, 350, 400);
+    var monsters = [monster, monster1, monster2, monster3, monster4, monster5, monster6,
+        monster7, monster8];
+    return monsters;
+}
+var monsters = listMonster();
+
 //-------------------Image -------------------------
 // Hình ảnh menu
 var imgMenuBg = new Image();
@@ -36,9 +38,14 @@ imgReload.src = 'image/reload.png';
 
 
 // Hình ảnh main
+var imgMainBg = new Image();
+imgMainBg.src = 'image/mainbg.png'
 
 var imgMonster = new Image();
 imgMonster.src = 'image/monster.png'
+
+var imgBoom = new Image();
+imgBoom.src = 'image/boom.png';
 //------------------End Image---------------------------------
 
 //------------------- Layout --------------------------------
@@ -56,28 +63,34 @@ function layoutMenu() {
     ctxMenu.fillText('Speed:', 10, 90);
     ctxMenu.fillText('Random Monster:', 230, 30);
 }
+
+// layout main
+function layoutMain() {
+    ctxMain.drawImage(imgMainBg, 0, 0)
+}
+
 //-------------------End layout-------------------------------
 
 //------------------tạo monster và di chuyển monster-----------------
 // khởi tạo đối tượng monster xuất hiện bất kì
-function Monster(mapWidtch, mapHeight, cx, cy) {
+function Monster(mapWidtch, mapHeight, speedX, speedY, cx, cy) {
     this.mapWidtch = mapWidtch;
     this.mapHeight = mapHeight;
-    this.transparen = true;
-    this.speedX = 1;
-    this.speedY = 1;
+    this.transparen = false;
+    this.speedX = speedX;
+    this.speedY = speedY;
     this.cx = cx;
     this.cy = cy;
 }
 // tạo monster xuất hiện cố định
 // tạo ảnh monster
-Monster.prototype.draw = function() {
+Monster.prototype.draw = function () {
     ctxMain.beginPath();
-    ctxMain.drawImage(imgMonster,this.cx, this.cy, 100, 100);
+    ctxMain.drawImage(imgMonster, this.cx, this.cy, 100, 100);
     ctxMain.closePath();
 }
 // tạo chuyển dộng
-Monster.prototype.move = function() {
+Monster.prototype.move = function () {
     this.cx += this.speedX;
     this.cy += this.speedY;
     this.left = this.cx;
@@ -86,78 +99,126 @@ Monster.prototype.move = function() {
     this.bottom = this.cy + 100;
 }
 // xử lý va chạm
-Monster.prototype.checkCollision = function() {
-    if (this.left <= 0 || this.right >= canvasMain.width){
+Monster.prototype.checkCollision = function () {
+    if (this.left <= 0 || this.right >= canvasMain.width) {
         this.speedX = -this.speedX;
     }
-    if (this.top <= 0 || this.bottom > canvasMain.height){
+    if (this.top <= 0 || this.bottom > canvasMain.height) {
         this.speedY = -this.speedY;
     }
 }
 // xác định vị trí đối tượng chuyển động
-Monster.prototype.monsterStatus =function(e) {
+Monster.prototype.monsterStatus = function (e) {
     preX = e.pageX - canvasMain.offsetLeft;
     preY = e.pageY - canvasMain.offsetTop;
-    if (this.cx + 25 < preX && preX < this.cx + 100 && this.cy + 10 < preY && preY < this.cy +90){
-        this.clearMonster();
+    if (this.cx + 25 < preX && preX < this.cx + 100 
+        && this.cy + 10 < preY && preY < this.cy + 90 &&  this.transparen == true) {
         this.transparen = false;
-        score();    
+        randomMonster();
+        score(10);
+    }
+    // if (0 < preX && preX < this.cx ){
+    //     console.log('ok')
+    // }
+}
+// xét vị trí để đi lùi
+Monster.prototype.getPlace = function () {
+    if (this.cx + 25 < 222 && 222 < this.cx + 100 && this.cy + 10 < 222 && 222 < this.cy + 90) {
+        this.speedX = -this.speedX;
+        this.speedY = -this.speedY;
     }
 }
 // xóa ảnh monster
-Monster.prototype.clearMonster = function() {
-    ctxMain.clearRect(this.cx-1, this.cy-1, 100, 100);
-    ctxMain.clearRect(this.cx+5, this.cy+5, 100, 100);
-    
+Monster.prototype.clearMonster = function () {
+    ctxMain.clearRect(this.cx - 1, this.cy - 1, 100, 100);
+    ctxMain.clearRect(this.cx + 1, this.cy + 1, 100, 100);
+
 }
 // update sau moi lan chuyen dong
+var startStatus = true;
 function update() {
-    let countMonster = 0;
-    for (countMonster = 0; countMonster < 2; countMonster++){
-        monsters[countMonster].move();
-        monsters[countMonster].checkCollision();
-        monsters[countMonster].clearMonster();
-        if (monsters[countMonster].transparen){
-            monsters[countMonster].draw();
+    fauseOrPlay(startStatus)
+    if (startStatus) {
+        
+        let countMonster = 0;
+        for (countMonster = 0; countMonster < soLuongMonster; countMonster++) {
+            if (monsters[countMonster].transparen){
+                monsters[countMonster].checkCollision();
+                monsters[countMonster].clearMonster();
+            }
         }
-       
+        drawMonster(soLuongMonster);
     }
-    
+}
+// mỗi bước đi tiến hành vẽ lại
+function drawMonster(soLuongMonster) {
+    layoutMain();
+    for (countMonster = 0; countMonster < soLuongMonster; countMonster++) {
+        if (monsters[countMonster].transparen) {
+            monsters[countMonster].draw();
+            monsters[countMonster].move();
+            if (countMonster != 0) {
+                monsters[countMonster].getPlace();
+            }
+        }
+    }
 }
 
 //------------------End Tạo di chuyển của monster---------------
 
 //------------------Function giết monster-----------------------
 //Event onclick image
-function mouseClickMenu(name, toaDoXMin, toaDoXMax,toaDoYMin, toaDoYMax) {
-    canvasMenu.addEventListener('click',function(e) {
-            preX = e.pageX - canvasMenu.offsetLeft;
-            preY = e.pageY - canvasMenu.offsetTop;
-            if (toaDoXMin < preX && preX < toaDoXMax && toaDoYMin < preY && preY < toaDoYMax){
-                if (name == 'boom'){
-                    alert('boom')
-                }
-                if (name == 'pause'){
-                    startStatus = !startStatus;
-                    fauseOrPlay(startStatus)
-                }
+function mouseClickMenu(name, toaDoXMin, toaDoXMax, toaDoYMin, toaDoYMax) {
+    canvasMenu.addEventListener('click', function (e) {
+        preX = e.pageX - canvasMenu.offsetLeft;
+        preY = e.pageY - canvasMenu.offsetTop;
+        if (toaDoXMin < preX && preX < toaDoXMax && toaDoYMin < preY && preY < toaDoYMax) {
+            if (name == 'boom') {
+                killAll();
             }
-        })
+            if (name == 'pause') {
+                startStatus = !startStatus;
+                update();
+            }
+            if (name == 'reload') {
+                location.reload();
+            }
+        }
+    })
 }
-function mouseClickMonster(i){
-    canvasMain.addEventListener('click',function(e) {
+function mouseClickMonster(i) {
+    canvasMain.addEventListener('click', function (e) {
         monsters[i].monsterStatus(e);
     })
 }
-
+//kill all
+function killAll() {
+    startStatus = !startStatus;
+    layoutMain();
+    ctxMain.drawImage(imgBoom, 150, 150, 150, 150)
+    setTimeout('play()', 1000)
+}
+function play() {
+    let count = 0;
+    for (countMonster = 0; countMonster < soLuongMonster; countMonster++) {
+        if ( monsters[countMonster].transparen){
+            monsters[countMonster].transparen = false;
+            count ++;
+        }
+    }
+    score(count * 10);
+    startStatus = !startStatus;
+    randomMonster();
+    update();
+}
 //xác định vị trí đối tượng (tui dùng)
 function mouse() {
     let preX;
     let preY;
-    canvasMain.addEventListener('click',function(e) {
+    canvasMain.addEventListener('click', function (e) {
         preX = e.pageX - this.offsetLeft;
         preY = e.pageY - this.offsetTop;
-        console.log(preX+ ' '+preY)
+        console.log(preX + ' ' + preY)
     })
 }
 //------------------End function kill monster----------------------
@@ -165,36 +226,43 @@ function mouse() {
 //-----------------Score, heart, speed, pause-----------------------------
 
 // score
-function score() {
-    diem += 10;
+var diem = 0;
+function score(number) {
+    diem += number;
     ctxMenu.beginPath();
-    ctxMenu.clearRect( 100, 10, 40, 20);
+    ctxMenu.clearRect(100, 10, 40, 20);
     ctxMenu.fillText(diem, 100, 30);
     ctxMenu.closePath();
 }
 // pause or play
 function fauseOrPlay(startStatus) {
-    console.log(startStatus)
-    if (startStatus){
-        fast;
-        console.log('yes')
-    } else{
-        clearInterval(fast);
-        console.log('no')
+    if (startStatus) {
+        setTimeout('update()', 10)
     }
-   
 }
 //-----------------Score, heart, speed-----------------------------
-window.onload = function main(){
+//-----------------Số lượng monster xuất hiện--------------------
+//xuất ra so luong 
+var soLuongMonster = 9
+function randomMonster() {
+    let randomMonst = Math.floor(Math.random() * (soLuongMonster));
+    let monsterNow = randomMonst;
+    monsters[randomMonst].transparen = true;
+    mouseClickMonster(randomMonst);
+}
+
+
+//------------------Kết thúc------------------------------------
+window.onload = function main() {
     let speed = 100;
     let countMonster = 0;
     layoutMenu();
+    layoutMain();
     mouseClickMenu('boom', 240, 275, 50, 85);//Boom Kill All
     mouseClickMenu('pause', 320, 360, 50, 85);//pause
     mouseClickMenu('reload', 390, 420, 50, 85);//reload
-    for (countMonster = 0; countMonster < 2; countMonster++){
-        mouseClickMonster(countMonster);
-    }
-    fauseOrPlay();
+    randomMonster();
+    fauseOrPlay(startStatus);
+    
 }
 
