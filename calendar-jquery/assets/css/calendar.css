@@ -1,0 +1,10 @@
+.calendar  .form-input, input{
+    position: relative;
+    width: 200px;
+    padding: 5px;
+}
+.calendar  img{
+    position: absolute;
+    right: 0;
+    top: 25%;
+}

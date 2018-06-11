@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/slider.css">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Slider</title>
+</head>
+<body>
+    <div class="container">
+        <table>
+            <tr>
+                <td><input onclick="changeImage(-1)" type="button" value="<<"></td>
+                <td id="image"><img id="slider" src="image/soi_1.jpg"  alt="soi_1"></td>
+                <td><input onclick="changeImage(1)" type="button" value=">>"></td>
+            </tr>
+            <tr class="miniImage">
+                <td></td>
+                <td>
+                    <img src="image/soi_1.jpg" alt="soi_1">
+                    <img src="image/soi_2.jpg" alt="soi_2">
+                    <img src="image/soi_3.jpg" alt="soi_3">
+                    <img src="image/soi_4.jpg" alt="soi_4">
+                </td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+    <script src="../jquery-3.3.1.min.js"></script>
+    <script src="assets/js/slider.js"></script>
+</body>
+</html>
+
+       
+     
