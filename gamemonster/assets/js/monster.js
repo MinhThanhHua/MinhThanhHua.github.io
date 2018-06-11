@@ -285,11 +285,17 @@ function score(number) {
 }
 // điểm cao
 function highCore(diem) {
-    let hiCore = localStorage.myScore;
-    console.log(localStorage.myScore)
-    if (diem >= hiCore){
-        localStorage.myScore = diem;
-        hiCore = diem;
+    let hiCore = 0;
+    if (localStorage.myScore == undefined){
+        localStorage.myScore = 0;
+        hiCore = localStorage.myScore;
+    } else{
+        hiCore = localStorage.myScore;
+        console.log(localStorage.myScore)
+        if (diem >= hiCore){
+            localStorage.myScore = diem;
+            hiCore = diem;
+        }
     }
     ctxMenu.clearRect(180, 0, 50, 30)
     ctxMenu.fillText(hiCore, 180, 30);
