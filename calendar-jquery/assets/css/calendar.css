@@ -1,4 +1,7 @@
-.calendar  .form-input, input{
+.calendar{
+    text-align: center;
+}
+.calendar  .form-input, input[type = 'text']{
     position: relative;
     width: 200px;
     padding: 5px;
@@ -7,4 +10,21 @@
     position: absolute;
     right: 0;
     top: 25%;
+}
+.calendar table, tr, td{
+    border: 2px solid black;
+    border-collapse: collapse;
+}
+.calendar input[type="button"]{
+    width: 35px;
+}
+.calendar table{
+    background-color: #777;
+    margin-left: 50px;
+}
+.calendar td{
+    background-color: white;
+    width: 30px;
+    padding: 5px 15px;
+    
 }
