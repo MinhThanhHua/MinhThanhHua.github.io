@@ -7,7 +7,6 @@ $(document).ready(function() {
 })
 var createCalendar = false;
 function createTable() {
-    console.log('create')
     let table = $('<table></table>');
     let i = 0;
     var tr = $('<tr></tr>');
@@ -52,12 +51,11 @@ function createTable() {
 function showTable() {
     let yearNow = getYearNow();
     let monthNow = getMonthNow();
-    // if (createCalendar){
-    //     createTable();
-    //     addEventClickButton();
-    //     console.log('ok')
-    //     createCalendar = false;
-    // }
+    if (createCalendar){
+        createTable();
+        addEventClickButton();
+        createCalendar = false;
+    }
     cssTable();
     placeDate(monthNow, yearNow);
     $('select').first().change(changeMonth);
@@ -153,7 +151,6 @@ function selectYear() {
         : $('<option></option>').text(i);
         select.append(option);
     }
-    console.log(option)
     return select;
 }
 function selectMonth() {
