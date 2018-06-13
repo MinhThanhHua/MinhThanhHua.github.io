@@ -1,0 +1,51 @@
+.container{
+	width: 50%;
+	margin: auto;
+	margin-left: 30%;
+	font-size: 20px;
+	font-weight: 500;
+}
+.form-control span{
+	clear: both;
+	width: 150px;
+	text-align: right;
+	padding-right: 15px;
+	margin: 5px;
+	float: left;
+}
+.form-control input[type = 'text'],.form-control input[type = 'password']{
+	border: 1px solid #3cc;
+	border-radius: 3px;
+	box-shadow: 1px 1px #3cc;
+	width: 200px;
+	height: 20px;
+	margin: 5px;
+}
+.form-control input[type = 'submit']{
+	margin-left: 180px;
+	margin-top: 3px;
+}
+.input-control-button input{
+	color: white;
+	background-color: #6cf;
+	padding: 5px;
+	border: 1px solid #3cc;
+	border-radius: 3px;
+	box-shadow: 1px 1px #3cc;
+}
+#ngaysinh{
+	position: relative;
+	
+}
+img{
+	position: absolute;
+	right: 5%;
+	top: 30%;
+}
+.show{
+	font-weight: 500;
+	color: red;
+}
+.input-control{
+	display: flex;
+}
