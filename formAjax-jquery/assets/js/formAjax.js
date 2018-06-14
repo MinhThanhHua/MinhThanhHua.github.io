@@ -7,36 +7,36 @@ $(document).ready(function(){
     })
 })
 function checkValidateForm() {
-    // let name = $('input[name=username]').val();
-    // let password = $('input[name=password]').val();
-    // if (name.length < 8){
-    //     $('b').eq(0).text('Username length min 8 letter!');
-    //     return false;
-    // }
-    // $('b').eq(0).text('Success ^.^').css({'color':'lightgreen'});;
-    // if (password.length < 8){
-    //     $('b').eq(1).text('Password length min 8 letter!');
-    //     return false;
-    // }
-    // $('b').eq(1).text('Success ^.^').css({'color':'lightgreen'});;
-    // if (1){
-    //     let text = validateEmail();
-    //     if (text.length > 0){
-    //         $('b').eq(2).text(text).css({'color':'red'});
-    //         return false;
-    //     }  
-    // }
-    // $('b').eq(2).text('Success ^.^').css({'color':'lightgreen'});
-    // if (checkBirthday()){
-    //     $('b').eq(3).text("Wrong birthday").css({'color':'red'});
-    //     return false;
-    // }
-    // $('b').eq(3).text('Success ^.^').css({'color':'lightgreen'});
+    let name = $('input[name=username]').val();
+    let password = $('input[name=password]').val();
+    if (name.length < 8){
+        $('b').eq(0).text('Username length min 8 letter!');
+        return false;
+    }
+    $('b').eq(0).text('Success ^.^').css({'color':'lightgreen'});;
+    if (password.length < 8){
+        $('b').eq(1).text('Password length min 8 letter!');
+        return false;
+    }
+    $('b').eq(1).text('Success ^.^').css({'color':'lightgreen'});;
+    if (1){
+        let text = validateEmail();
+        if (text.length > 0){
+            $('b').eq(2).text(text).css({'color':'red'});
+            return false;
+        }  
+    }
+    $('b').eq(2).text('Success ^.^').css({'color':'lightgreen'});
+    if (checkBirthday()){
+        $('b').eq(3).text("Wrong birthday").css({'color':'red'});
+        return false;
+    }
+    $('b').eq(3).text('Success ^.^').css({'color':'lightgreen'});
     if (1){
         loadAjax();
         return false;
     }
-    return false;
+    return true;
 }
 function validateEmail() {
     let email = $('input[name=email]').val();
