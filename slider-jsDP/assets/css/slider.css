@@ -1,0 +1,35 @@
+.all-image  img {
+    width: 400px;
+    height: 250px;
+    position: absolute;
+    left: 400px;
+}
+.mini-image img {
+    width: 80px;
+    height: 60px;
+}
+.container, .footer{
+    margin: auto;
+    width: 50%;
+    display: flex;
+}
+.all-image {
+    width: 400px;
+    height: 250px;
+    position: relative;
+    overflow: hidden;
+}
+input[type='button']{
+    margin: 80px 20px;
+    padding: 20px;
+    border: none;
+    background: white;
+    font-size: 50px;
+}
+.mini-image {
+    display: flex;
+    margin-left: 16%;
+}
+.mini-image img {
+    margin-left: 2px
+}
