@@ -41,18 +41,21 @@
 		<area target="" alt="" title="" href="#" coords="830,57,867,96" shape="rect">
 		<area target="" alt="" title="" href="#" coords="871,56,908,95" shape="rect">
 	</map>
+	
 	<script src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="jquery.rwdImageMaps.min.js"></script>
 	<script type="text/javascript" src="jquery.imagemapster.min.js"></script>
 	<script>
+		
 		$(document).ready(function() {
+			$('img[usemap]').rwdImageMaps();
 			$('#seats').mapster({
 				fillOpacity: 0.8,
 				render_select: { 
-					fillColor: '99ff99',
 					altImage: 'seats1.png'
 				},
 				render_highlight: {
-					fillColor: 'FF3300',
+					fillColor: '009900',
 				},
 				area: [{
 					key: 'AX',
