@@ -5,7 +5,7 @@
 	<title>Document</title>
 </head>
 <body>
-    <img id="house" src="image.png" style="" usemap="#house-map" >
+    <img id="house" src="image.png"  usemap="#house-map" >
         <map name="house-map">
             <area data-key="AZ" shape="circle" name="part-A" coords="26,168,14" href="#"/>
             <area data-key="AK" shape="circle" name="part-B" coords="173,124,15" href="#"/>
@@ -17,7 +17,6 @@
 		jQuery(document).ready(function($) {
 		    $('#house').mapster({
 		        mapKey: 'data-key',
-		        singleSelect: true,
 		        fillOpacity: 0.6,
 		        fillColor: '2aff00', //khi để vào
 		        render_select: { // màu nền bên trong
@@ -27,7 +26,6 @@
 		        render_highlight: {// vòng tròn ngoài
 		        	fillColor: 'ff0000',
 		        },
-				singleSelect: false,
 		        // areas: [
 		        // 	{
 		        // 		key: 'AZ',

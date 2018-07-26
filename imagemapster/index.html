@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Image Mapster</title>
+</head>
+<body>
+	<img id="seats" src="seats.png" usemap="#image-map">
+	<map name="image-map">
+		<area target="" alt="" title="" href="#" coords="150,17,187,56" shape="rect" href="#"/>
+		<area target="" alt="" title="" href="#" coords="191,17,228,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="270,17,307,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="310,17,347,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="350,17,387,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="390,17,427,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="430,17,467,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="470,17,507,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="510,17,547,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="550,17,587,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="591,16,628,55" shape="rect">
+		<area target="" alt="" title="" href="#" coords="630,16,667,55" shape="rect">
+		<area target="" alt="" title="" href="#" coords="671,16,708,55" shape="rect">
+		<area target="" alt="" title="" href="#" coords="750,17,787,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="790,17,827,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="831,16,868,55" shape="rect">
+		<area target="" alt="" title="" href="#" coords="871,17,908,56" shape="rect">
+		<area target="" alt="" title="" href="#" coords="150,58,187,97" shape="rect">
+		<area target="" alt="" title="" href="#" coords="191,57,228,96" shape="rect">
+		<area target="" alt="" title="" href="#" coords="271,57,308,96" shape="rect">
+		<area target="" alt="" title="" href="#" coords="311,56,348,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="351,56,388,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="391,56,428,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="431,56,468,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="471,56,508,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="511,56,548,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="551,56,588,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="591,56,628,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="631,56,668,95" shape="rect">
+		<area target="" alt="" title="" href="#" coords="671,56,708,95" shape="rect">
+		<area key="AX" target="" alt="" title="" href="#" coords="771,58,808,97" shape="rect">
+		<area target="" alt="" title="" href="#" coords="830,57,867,96" shape="rect">
+		<area target="" alt="" title="" href="#" coords="871,56,908,95" shape="rect">
+	</map>
+	<script src="jquery-1.4.4.min.js"></script>
+	<script type="text/javascript" src="jquery.imagemapster.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#seats').mapster({
+				fillOpacity: 0.8,
+				render_select: { 
+					fillColor: '99ff99',
+					altImage: 'seats1.png'
+				},
+				render_highlight: {
+					fillColor: 'FF3300',
+				},
+				area: [{
+					key: 'AX',
+					staticState : false,
+				}]
+			})
+		})
+	</script>
+</body>
+</html>
+
+
