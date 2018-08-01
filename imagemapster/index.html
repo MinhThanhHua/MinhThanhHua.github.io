@@ -3,9 +3,20 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Image Mapster</title>
+	<style>
+		#map{
+			width: 80%;
+			position: fixed;
+		}
+		#seats{
+			width: 100%;
+		}
+	</style>
 </head>
 <body>
-	<img id="seats" src="seats.png" usemap="#image-map">
+	<div id="map">
+		<img id="seats" src="seats.png" usemap="#image-map">
+	</div>
 	<map name="image-map">
 		<area target="" alt="" title="" href="#" coords="150,17,187,56" shape="rect" href="#"/>
 		<area target="" alt="" title="" href="#" coords="191,17,228,56" shape="rect">
@@ -43,12 +54,10 @@
 	</map>
 	
 	<script src="jquery-1.4.4.min.js"></script>
-	<script type="text/javascript" src="jquery.rwdImageMaps.min.js"></script>
 	<script type="text/javascript" src="jquery.imagemapster.min.js"></script>
 	<script>
 		
 		$(document).ready(function() {
-			$('img[usemap]').rwdImageMaps();
 			$('#seats').mapster({
 				fillOpacity: 0.8,
 				render_select: { 
@@ -62,6 +71,9 @@
 					staticState : false,
 				}]
 			})
+			window.onresize = function() {
+				$('#seats').mapster('resize',$('#map').width());
+			};
 		})
 	</script>
 </body>
