@@ -1,0 +1,129 @@
+﻿1/ DẠNG TỒN TẠI CỦA THÔNG TIN?
+	VẬT LÝ – GIẤY , ĐIỆN TỬ (SỐ), BẢN MẪU, TRÍ NHỚ CON NGƯỜI
+2/ ISMS
+	Hạ tầng bảo mật CNTT
+	Quy trình bảo mật
+	Con người
+	Sự hỗ trợ của lãnh đạo
+3/ HỆ THỐNG TÀI LIỆU CÔNG TY
+	CS ISMS
+	SoA-Sổ tay
+	Quy trình
+	Hướng dẫn/ Biểu mẫu
+	Hồ sơ chứng cứ
+4/ CÁC QUY TRÌNH VỀ AN NINH THÔNG TIN
+	QUẢN LÝ VĂN BẢN
+	QUẢN LÝ RỦI RO THÔNG TIN
+	QUẢN LÝ TÀI SẢN
+	QUẢN LÝ VẤN ĐỀ THÔNG TIN
+	ĐÁNH GIÁ NỘI BỘ
+	HỌP XEM XÉT LÃNH ĐẠO
+	KINH DOANH LIÊN TỤC
+	TỔ CHỨC AN NINH NỘI BỘ
+	QUẢN LÝ AN NINH VẬT LÝ VÀ MÔI TRƯỜNG
+	QUẢN LÝ MÃ HÓA
+	ĐIỀU HÀNH AN NINH THÔNG TIN
+	KIỂM SOÁT HỆ THỐNG
+	QUẢN LÝ TRUY CẬP
+	MUA SẮM TÀI SẢN
+	
+5/ CÁC MỐI NGUY ĐỐI VỚI THÔNG TIN
+	Kiến thức an ninh thông tin của nhân viên
+	Ăn trộm, xâm nhập trái phép
+	Virus Malware Spyware
+	Đối tác
+	Thiên tai, thảm họa thiên nhiên
+	Quản lý ra vào, an ninh không đảm bảo
+	Tài liệu không quản lý cẩn thận
+	Hệ thống mạng, viễn thông
+6/ QUẢN LÝ THÔNG TIN MỘT CÁCH ĐẦY ĐỦ
+	Đảm bảo tính bảo mật confidentiality
+	Đảm bảo tính toàn vẹn integrity
+	Đảm bảo tính sẵn sàng availability
+7/ ĐẢM BẢO AN NINH THÔNG TIN
+	Cân bằng giữa:
+	Rủi Ro 		Kiểm soát
+	Bảo mật		Công nghệ
+	Sẵn sàng	Quy trình
+	Toàn vẹn	Con người
+8/ KHI MỤC TIÊU LÀ AN NINH THÔNG TIN
+	Tăng tính An toàn Đồng nghĩa với giảm sự Tiện dụng và Công năng 
+9/ YẾU TỐ TẠO NÊN THÀNH CÔNG CỦA ISMS
+	Đáp ứng đầy đủ yêu cầu
+	Sự lãnh đạo
+	SỰ THAM GIA CỦA TẤT CẢ MỌI NGƯỜI
+	Thực hiện theo quy trình
+	Tiếp cận theo hệ thống
+	Cải tiến thường xuyên
+	Quyết định dựa theo sự kiện
+	Hợp tác chặc chẽ với đối tác
+10/ PHÂN LOẠI THÔNG TIN
+	Mật:
+	✓ Thông tin liên quan tới quản lý (thông tin Khách hàng, nhân sự,
+	dự án, Hợp đồng, thông tin Khách hàng cung cấp…)
+	✓ Chỉ được chia sẻ hạn chế cho một số người có liên quan
+	✓ Nếu bị lộ sẽ làm giảm tính cạnh tranh, có thể ảnh hưởng lớn
+	đến Công ty, Khách hàng, các đối tác, nhân viên Công ty
+	Nội bộ:
+	Thông tin được cung cấp, chia sẻ trong nội bộ các Bộ phận, Công ty
+	Thông tin được bảo mật về nguyên tắc, chỉ sử dụng và lưu
+	hành trong nội bộ
+	Public:
+	Thông tin có thể chia sẻ công khai ra bên ngoài
+	Ví dụ: Quá trình hình thành phát triển của Công ty, Lĩnh
+	vực kinh doanh phát triển, Địa chỉ, logo của Công ty…
+11/ PHÂN CHIA KHU VỰC BẢO MẬT
+	Khu vực mật: Cửa khóa, có kiểm soát.
+	Khu vực NộI bộ: Khu vực của nhân viên.
+	Khu vực Public: Khách, Người chuyển hàng.
+12/ KIỂM SOÁT TÀI LIỆU VĂN BẢN THÔNG TIN
+	Văn bản là toàn bộ các file, bản cứng sản phẩm công việc, chính sách, quy
+trình, tài liệu Khách hàng cung cấp… Văn bản cần phải được kiểm soát:
+	• Quản lý thông tin văn bản theo danh mục
+	• Không chia sẻ thông tin mật cho người không liên quan kể cả khi đã nghỉ
+	• Việc thay đổi tài liệu văn bản cần phải được kiểm soát và phân phối hợp lý.
+	• Lưu giữ, bảo quản ở nơi an toàn, bảo mật (ngăn kéo, tủ có khóa/ mã an toàn)
+	• Sắp xếp gọn gàng, hợp lý sao cho dễ tìm, dễ tra.
+	• Kiểm soát, ghi nhận việc mượn – trả tài sản (thiết bị, tài liệu văn bản)
+13/ CÁC QUY ĐỊNH BẢO MẬT
+	Bàn làm việc gọn gàng, sạch sẽ:
+		Không lưu file công việc trên desktop
+		Lock màn hình khi rời chỗ
+		Cài đặt chế độ màn hình chờ <= 5p, có mk
+14/ CÁC QUY ĐỊNH BẢO MẬT
+	QUY ĐỊNH VỀ THẺ NHÂN VIÊN:
+		Luôn đeo thẻ trong cty
+		Không cho mượn, mượn thẻ
+		Bảo quản cẩn thận
+		Quên, mất phải liên hệ lễ tân
+15/ CÁC CHÍNH SÁCH ATTT CẦN CHÚ Ý
+	QUY ĐỊNH VỀ SỬ DỤNG TÀI SẢN CÔNG TY:
+		Không copy, sửa, xóa data và không chia sẻ với người không liên quan
+		Tuyệt đối không chia sẻ tài liệu Khách hàng cung cấp ra ngoài phạm vi.
+		Không tự ý mang tài sản ra ngoài Công ty
+		Thông tin không còn liên quan cần được backup và xóa hoàn toàn trên máy Confid
+	QUY ĐỊNH VỀ MẬT KHẨU
+		>= 9 ký tự, có ký tự hoa,thường, số, đặc biệt.
+		Thay đổi 6 tháng lần, không trùng id
+	QUY ĐỊNH VỀ SỬ DỤNG TÀI SẢN CÁ NHÂN
+		Không tự ý kết nối thiết bị lưu trữ cá nhân vào máy tính, thiết bị của Công ty.
+		Trường hợp cần sử dụng phải đăng ký theo Template và được phê duyệt. => Khi hết thời hạn	
+		✓ Cần backup các dữ liệu cần thiết sang tài sản quản lý yêu cầu
+		✓ Xóa sạch dữ liệu, tài liệu thông tin của Công ty trên TS cá nhân
+	QUY ĐỊNH VỀ GỬI – NHẬN MAIL
+		Khi gửi mail Check cẩn thận địa chỉ email chuyển tới (To, CC, BCC).
+		• Email chứa thông tin của Công ty, Khách hàng ra bên ngoài (trừ Khách hàng và Đối tác liên quan).
+		• File quan trọng nhận được thì nên download về máy và xóa trên mail.
+		• Email phải được load về máy tính, không lưu trên máy chủ.
+		• Link lạ, File đính kèm khả nghi để tránh lây lan virus, spam, spy, web popup… Nếu lỡ phải rút ngay đường truyền và báo Network.
+	QUY ĐỊNH KHÁC
+		Không tự ý cài đặt phần mềm, thay đổi cấu trúc, nâng cấp phiên bản hệ điều hành máy tính, thiết bị 
+		Không tự ý hủy tài sản, văn bản giấy tờ.	
+		Không tự ý chia sẻ hình ảnh, thông tin Công ty, thông tin công việc trên các Website
+		Không tự ý chia sẻ hình ảnh, thông tin Công ty, thông tin công việc trên các Website
+	HÌNH THỨC XỬ PHẠT
+		• Khiển trách trực tiếp, khiển trách bằng văn bản
+		• Kéo dài thời gian nâng lương
+		• Sa thải
+		• Truy tố pháp luật
+16/ 
