@@ -11,11 +11,23 @@
 		#seats{
 			width: 100%;
 		}
+		#save{
+			margin: auto;
+			width: 10%;
+		}
+		button{
+			background-color: aqua;
+			padding: 5px
+		}
 	</style>
 </head>
 <body>
 	<div id="map">
 		<img id="seats" src="seats.png" usemap="#image-map">
+		<div id="save">
+			<button onclick="saveLocation()">Save</button>
+			<button onclick="clearSession()">Clear</button>
+		</div>
 	</div>
 	<map name="image-map">
 		<area   href="#" coords="150,17,187,56" shape="rect">
@@ -66,18 +78,32 @@
 		},
 		selStates = {},
 		map = $('#seats'),
-		key = ['0', '1', '17', '18']; // các khu vực không thể click
+		listSpot = [], // danh sách các ô được chọn
+		key = ['0', '1', '17', '18'], // các ô mặc định không được chọn
+		listKey = sessionStorage.getItem("listSpot"); 
 		
+		if (listKey != null) {
+			listKey = listKey.split(','); // chuyen chuoi sang mang
+			key = key.concat(listKey);// các khu vực không thể click
+		}
+
 		function onClick(data) {
 			var cur = selStates[data.key] || 0,// khởi tạo hoặc lấy đối tượng
 			   next = (cur + 1) % 2; // các bước đi của đối tượng đó
 
 			if (key.indexOf(data.key) != -1) {
 				alert('Khu vực này đã được chọn')
-			} else if (next) {	
+			} else if (next) {
+				listSpot.push(data.key); // nếu chọn thì cho vào mảng 	
 				map.mapster('set', false , data.key);
 				map.mapster('set', true , data.key, render_select_1);
 			} else {
+				// loại khỏi mảng khi bỏ chọn
+				var spot = listSpot.indexOf(data.key);
+				if (spot != -1) {
+					listSpot.splice(spot, 1);
+				}
+
 				map.mapster('set', false , data.key);// khóa khu vực này (đưa về trạng thái ban đầu)
 			}
 			selStates[data.key] = next;
@@ -91,9 +117,26 @@
 			
 			// Load image 2	
 			// Xét những vị trí đã được chọn để load image 2
-			for (var i = 0; i < 4; i++) {
+			for (var i = 0; i < key.length; i++) {
 				map.mapster('set', true , key[i], render_select_2); // xét các vị trí 
 			}
+		}
+
+		// Lưu vào session, nếu session đã tồn tại thì lưu thêm vào các
+		// ô vừa nhập vào session(listKey) đó.
+		function saveLocation() {
+			// nếu có session trước đó thì tiếp tục cộng tiếp với mảng session đó.
+			if (listKey != null) {
+				listSpot = listSpot.concat(listKey);// cộng mảng
+			}
+			sessionStorage.setItem("listSpot", listSpot);//tạo session
+			location.reload();
+		}
+
+		// Xóa tất cả các session được lưu
+		function clearSession() {
+			sessionStorage.clear();
+			location.reload();
 		}
 
 		$(document).ready(function() {
