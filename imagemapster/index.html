@@ -94,6 +94,8 @@
 
 			if (key.indexOf(data.key) != -1) {
 				alert('Khu vực này đã được chọn')
+				map.mapster('set', false , data.key);
+				map.mapster('set', true , data.key, render_select_2);
 			} else if (next) {
 				listSpot.push(data.key); // nếu chọn thì cho vào mảng 	
 				map.mapster('set', false , data.key);
@@ -104,7 +106,7 @@
 				if (spot != -1) {
 					listSpot.splice(spot, 1);
 				}
-
+				
 				map.mapster('set', false , data.key);// khóa khu vực này (đưa về trạng thái ban đầu)
 			}
 			selStates[data.key] = next;
@@ -143,6 +145,7 @@
 		$(document).ready(function() {
 			$('#seats').mapster({
 				keyMap: 'state',
+				fillColor: '009900',
 				fillOpacity: 0.8,
 				onClick: onClick,
 				onConfigured: onConfigured, // như ready của Jquery
